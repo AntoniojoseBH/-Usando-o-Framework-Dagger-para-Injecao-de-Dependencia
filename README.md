@@ -2,10 +2,13 @@
 
 **Roteiro Prático de Laboratório de Engenharia de Software 1** 
 
-**Alunos:Antônio José Peixoto Chaves  - Matrícula: 20193002329 
-         Gustavo de Carvalho Baumant               20193008224
-	 Heitor Vieira Macedo                      20203010518
-         Matheus Thiago de Souza Ferreira          20193015891**
+**Alunos:Antônio José Peixoto Chaves  - Matrícula: 20193002329** 
+        
+   **Gustavo de Carvalho Baumant               20193008224**
+	
+   **Heitor Vieira Macedo                      20203010518**
+         
+   **Matheus Thiago de Souza Ferreira          20193015891**
 
 Introdução
 -------
