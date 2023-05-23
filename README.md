@@ -253,9 +253,9 @@ A injeção de dependências é um padrão que deve-se usar desde de cedo no pro
 
 Referências
 -------
-Como usar o Dagger em apps Android. Disponível em: <https://developer.android.com/training/dependency-injection/dagger-android?hl=pt-br>. Acesso em: 22 may. 2023.
+Como usar o Dagger em apps Android. Disponível em: <https://developer.android.com/training/dependency-injection/dagger-android?hl=pt-br>. Acesso em: 15 maio de 2023.
 
-Inject activity using dagger. Disponível em: <https://stackoverflow.com/questions/47801035/inject-activity-using-dagger>. Acesso em: 22 may. 2023.
+Inject activity using dagger. Disponível em: <https://stackoverflow.com/questions/47801035/inject-activity-using-dagger>. Acessado em: 15 maio de 2023.
 
  [1]: http://square.github.com/dagger/
  [dl-dagger]: http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.squareup.dagger%22%20a%3A%22dagger%22
