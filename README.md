@@ -17,7 +17,7 @@ Em engenharia de software, a injeção de dependências é uma técnica onde um 
 
 Quando a classe A usa alguma funcionalidade da classe B, diz-se que a classe A tem uma dependência da classe B.
 
-Em Java, antes de poder usar métodos de outras classes, primeiro precisamos criar o objeto daquela classe (ou seja, a classe A precisa criar uma instância da classe B).
+Em Java, antes de poder usar métodos de outras classes, primeiro é preciso criar o objeto daquela classe (ou seja, a classe A precisa criar uma instância da classe B).
 
 Desse modo, transferir a tarefa de criação do objeto a outra entidade e usar diretamente a dependência é chamado de injeção de dependência.
 
@@ -43,20 +43,19 @@ Dagger
 ========
 Princípios básicos do Dagger
 -------
-A injeção de dependência manual ou os localizadores de serviço em um app Android podem ser problemáticos, dependendo do tamanho do projeto. Você pode limitar a complexidade do seu projeto conforme ele se expande usando o Dagger para gerenciar dependências.
+A injeção de dependência manual ou os localizadores de serviço em um app Android podem ser problemáticos, dependendo do tamanho do projeto. Pode-se limitar a complexidade do projeto conforme ele se expande usando o Dagger para gerenciar dependências.
 
-O Dagger gera automaticamente um código que imita o que você teria programado manualmente. Como o código é gerado no momento da compilação, ele é rastreável e tem melhor desempenho que outras soluções baseadas em reflexões.
+O Dagger gera automaticamente um código no momento da compilação, que é rastreável e tem melhor desempenho que outras soluções baseadas em reflexões.
 
 As vantagens de usar o Dagger
-O Dagger libera você do processo tedioso de ter que escrever códigos de texto clichê propenso a erros:
-- Gerar código AppContainer (gráfico do aplicativo) que você implementou manualmente na seção da ID manual.
+- Gerar código AppContainer (gráfico do aplicativo) implementado manualmente na seção da ID manual.
 - Criar fábricas para as classes disponíveis no gráfico do aplicativo. É assim que as dependências são satisfeitas internamente.
 - Escolher reutilizar uma dependência ou criar uma nova instância usando escopos.
-- Criar contêineres para fluxos específicos, como você fez com o fluxo de login na seção anterior usando subcomponentes do Dagger. Isso melhora o desempenho do app ao liberar objetos na memória quando eles não são mais necessários.
+- Criar contêineres para fluxos específicos. Isso melhora o desempenho do app ao liberar objetos na memória quando eles não são mais necessários.
 
-O Dagger faz tudo isso automaticamente no tempo de compilação, contanto que você declare as dependências de uma classe e especifique como elas vão ser satisfeitas usando anotações. O Dagger gera um código semelhante ao que você escreveria manualmente. Internamente, o Dagger cria um gráfico de objetos que ele pode referenciar para encontrar a maneira de fornecer uma instância de uma classe. Para cada classe no gráfico, o Dagger gera uma classe do tipo fábrica class que a ferramenta usa internamente para receber instâncias desse tipo.
+O Dagger faz tudo isso automaticamente no tempo de compilação ao declarar as dependências de uma classe e especificar como elas vão ser satisfeitas usando anotações. O Dagger gera um código semelhante ao escrito manualmente. Internamente, o Dagger cria um gráfico de objetos que pode referenciar para encontrar a maneira de fornecer uma instância de uma classe. Para cada classe no gráfico, o Dagger gera uma classe do tipo fábrica class que a ferramenta usa internamente para receber instâncias desse tipo.
 
-No momento da compilação, o Dagger revisa seu código e cria e valida gráficos de dependência, garantindo que:
+No momento da compilação, o Dagger o código e cria e valida gráficos de dependência, garantindo que:
 - as dependências de cada objeto possam ser atendidas, de modo que não haja exceções de tempo de execução.
 - não haja ciclos de dependência, portanto, não haja loops infinitos.
 - Gera as classes usadas no tempo de execução para criar os objetos reais e suas respectivas dependências.
@@ -98,7 +97,7 @@ Implementando o Dagger
 -------
 Passo 1: Identificar objetos e suas dependências
 -------
-Para este tutorial teremos duas classes, Usuário que represente um usuário do nosso aplicativo e Perfil, que representa o seu perfil de usuário.
+Para este tutorial tem-se duas classes, Usuário que represente um usuário do nosso aplicativo e Perfil, que representa o seu perfil de usuário.
 
 ```java
 class Usuario {
@@ -131,7 +130,7 @@ class UsuarioPremium extends Perfil{
      }
 }
 ```
-Passo 2 : Criar nossa classe de Módulo
+Passo 2 : Criar a classe de Módulo
 -------
 Classes anotadas com @Module, devem conter métodos anotados com @Provides, esses métodos é que serão chamados na hora que as dependências forem injetadas.
 
@@ -160,14 +159,14 @@ public class UsuarioModule {
 }
 ```
 
-Aqui criamos dois métodos, o primeiro provê um Objeto Perfil, que é independente, e o outro provê um objeto Usuário que possui como dependência um Perfil.
+Cria-se dois métodos, o primeiro provê um Objeto Perfil, que é independente, e o outro provê um objeto Usuário que possui como dependência um Perfil.
 
-A anotação @Singleton indica que em toda aplicação existirá apenas um instância do objeto. Isto é sempre que precisarmos de um objeto usuário, será retorna a mesma instância.
+A anotação @Singleton indica que em toda aplicação existirá apenas um instância do objeto. Quando for preciso um objeto usuário, será retornada a mesma instância.
 
 
 Passo 3 : Requisitando a injeção de dependências dentro do Objeto Dependente
 -------
-Agora nossa classe módulo possui métodos provedores para as nossas diferentes classes. Nossa classe usuário necessita de um Perfil, então precisamos indicar isso usando a anotação @Inject no nosso construtor (poderíamos criar um método setPerfil, ou deixar o atributo perfil como público e anotá-lo).
+Agora a classe módulo possui métodos provedores para as diferentes classes. A classe usuário necessita de um Perfil, então precisa-se indicar isso usando a anotação @Inject no construtor (podere-se criar um método setPerfil, ou deixar o atributo perfil como público e anotá-lo).
 
 ```java
 @Inject
@@ -194,17 +193,17 @@ public interface UsuarioComponent {
 }
 ```
 
-Ao fazer a anotação @Component, você deve especificar quais módulos estarão disponíveis naquele componente(Separar módulos com ‘,’).
+Ao fazer a anotação @Component, deve-se especificar quais módulos estarão disponíveis naquele componente(Separar módulos com ‘,’).
 
 
-Com esta interface, o Dagger irá implementar os métodos abstratos e adicionar alguns métodos mais, que serão úteis ao nosso desenvolvimento.
+Com esta interface, o Dagger irá implementar os métodos abstratos e adicionar alguns métodos mais, que serão úteis ao desenvolvimento.
 
 
 Passo 5: Utilizar a interface anotada com @Component para obter os objetos
 -------
-Agora que está tudo configurado e conectado podemos obter uma instancia dessa interface e invocar seus métodos para obter nossos objetos, através dos provedores.
+Agora que está tudo configurado e conectado, pode-se obter uma instancia dessa interface e invocar seus métodos para obter os objetos, através dos provedores.
 
-Para isso irei implementar as chamadas no método OnCreate da nossa MainActivity.
+Para isso, implementa-se as chamadas no método OnCreate da MainActivity.
 ```java
 package com.example.injeodedependenciausandodagger.dagger;
  
@@ -235,17 +234,17 @@ public class MainActivity extends ActionBarActivity {
 }
 ```
 
-Quando queremo criar uma instancia da interface anotada com @Component, você deve chamar o método build do classe Gerada pelo Dagger, essa classe terá o nome Dagger<Nome_do_Component>.
+Quando cria-se uma instancia da interface anotada com @Component, deve-se chamar o método build da classe Gerada pelo Dagger, essa classe terá o nome Dagger<Nome_do_Component>.
 
 
-A partir desta instancia podemos chamar os métodos provedores de objetos, e receberemos nossas instancias de objetos já com todas as dependências injetadas.
+A partir desta instancia pode-se chamar os métodos provedores de objetos, e receber as instancias de objetos já com todas as dependências injetadas.
 ```java
 usuario = component.provideUsuario();
 ```
 
 Conclusão
 =======
-A injeção de dependências é um padrão que deve-se usar desde de cedo no seu projeto, porém se for necessário aplicá-lo mais tarde no projeto, será necessário algumas refatorações, porém todo esse trabalho será recompensado com um código mais limpo e fácil de manter e testar.
+A injeção de dependências é um padrão que deve-se usar desde de cedo no projeto, porém se for necessário aplicá-lo mais tarde, será necessário algumas refatorações, mas ao todo esse trabalho será recompensado com um código mais limpo e fácil de manter e testar.
 
 
 
