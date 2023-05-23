@@ -1,14 +1,15 @@
 # Usando o Framework Dagger para Injeção de Dependência
 
-**Roteiro Prático de Laboratório de Engenharia de Software 1** 
+Roteiro Prático de Laboratório de Engenharia de Software 1 
+-------
 
-**Alunos:Antônio José Peixoto Chaves  - Matrícula: 20193002329** 
+**Alunos: Antônio José Peixoto Chaves  - Matrícula: 20193002329** 
         
-   **Gustavo de Carvalho Baumant               20193008224**
+   **Gustavo de Carvalho Baumant       - Matrícula: 20193008224**
 	
-   **Heitor Vieira Macedo                      20203010518**
+   **Heitor Vieira Macedo              - Matrícula: 20203010518**
          
-   **Matheus Thiago de Souza Ferreira          20193015891**
+   **Matheus Thiago de Souza Ferreira  - Matrícula: 20193015891**
 
 Introdução
 -------
